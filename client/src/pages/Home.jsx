@@ -8,8 +8,18 @@ const Home = () => {
 useEffect(() => {
     apiCall()
 }, [])
+async function logoutFn () {
+  try {
+    const res = await axios.get('http://localhost:4000/auth/logout',{withCredentials:true})
+    console.log(res)
+  } catch (error) {
+    
+  }
+}
   return (
-    <div>Home</div>
+    <div>
+      <button onClick={logoutFn} >Logout</button>
+    </div>
   )
 }
 
